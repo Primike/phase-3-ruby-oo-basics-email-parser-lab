@@ -4,26 +4,14 @@
 # or whitespace (' ').
 
 class EmailAddressParser
-    def initialize(addresses)
-        @addresses = addresses
+
+    def initialize(x)
+        @emails = x
     end
 
     def parse
-        x = @addresses.split
-        q=0
-        array = []
-        while q < x.length() do
-            y = x[q].chars           
-            y.each do |x|
-                if x == ","
-                    y.pop
-                end
-            end
-            z = y.join
-            array << z
-            q += 1   
-        end
-        final = array.uniq
-        final
+        q = @emails.split(/, | /).uniq
+        q
     end
+        
 end
